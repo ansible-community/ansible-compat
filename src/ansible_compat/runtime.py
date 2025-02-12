@@ -661,7 +661,7 @@ class Runtime:
         role_name_check: int = 0,
     ) -> None:
         """Make dependencies available if needed."""
-        destination: Path | None = None
+        destination: Path = self.cache_dir / "collections"
         if required_collections is None:
             required_collections = {}
 
@@ -695,7 +695,6 @@ class Runtime:
                             destination=destination,
                         )
 
-        destination = self.cache_dir / "collections"
         for name, min_version in required_collections.items():
             self.install_collection(
                 f"{name}:>={min_version}",
@@ -704,22 +703,21 @@ class Runtime:
 
         galaxy_path = self.project_dir / "galaxy.yml"
         if (galaxy_path).exists():
-            if destination:
-                # while function can return None, that would not break the logic
-                colpath = Path(
-                    f"{destination}/ansible_collections/{colpath_from_path(self.project_dir)}",
-                )
-                if colpath.is_symlink():
-                    if os.path.realpath(colpath) == str(Path.cwd()):
-                        _logger.warning(
-                            "Found symlinked collection, skipping its installation.",
-                        )
-                        return
+            # while function can return None, that would not break the logic
+            colpath = Path(
+                f"{destination}/ansible_collections/{colpath_from_path(self.project_dir)}",
+            )
+            if colpath.is_symlink():
+                if os.path.realpath(colpath) == str(Path.cwd()):
                     _logger.warning(
-                        "Collection is symlinked, but not pointing to %s directory, so we will remove it.",
-                        Path.cwd(),
+                        "Found symlinked collection, skipping its installation.",
                     )
-                    colpath.unlink()
+                    return
+                _logger.warning(
+                    "Collection is symlinked, but not pointing to %s directory, so we will remove it.",
+                    Path.cwd(),
+                )
+                colpath.unlink()
 
             # molecule scenario within a collection
             self.install_collection_from_disk(
