@@ -36,18 +36,18 @@ markdown-include==0.8.1   # via mkdocs-ansible
 markupsafe==3.0.2         # via jinja2, mkdocs, mkdocs-autorefs, mkdocstrings
 mergedeep==1.3.4          # via mkdocs, mkdocs-get-deps
 mkdocs==1.6.1             # via mkdocs-ansible, mkdocs-autorefs, mkdocs-gen-files, mkdocs-htmlproofer-plugin, mkdocs-macros-plugin, mkdocs-material, mkdocs-minify-plugin, mkdocs-monorepo-plugin, mkdocstrings
-mkdocs-ansible==24.12.0   # via ansible-compat (pyproject.toml)
+mkdocs-ansible==25.2.0   # via ansible-compat (pyproject.toml)
 mkdocs-autorefs==1.3.1    # via mkdocstrings, mkdocstrings-python
 mkdocs-gen-files==0.5.0   # via mkdocs-ansible
 mkdocs-get-deps==0.2.0    # via mkdocs, mkdocstrings
 mkdocs-htmlproofer-plugin==1.3.0  # via mkdocs-ansible
 mkdocs-macros-plugin==1.3.7  # via mkdocs-ansible
-mkdocs-material==9.6.4    # via mkdocs-ansible
+mkdocs-material==9.6.5    # via mkdocs-ansible
 mkdocs-material-extensions==1.3.1  # via mkdocs-ansible, mkdocs-material
 mkdocs-minify-plugin==0.8.0  # via mkdocs-ansible
 mkdocs-monorepo-plugin==1.1.0  # via mkdocs-ansible
 mkdocstrings==0.28.1      # via mkdocs-ansible, mkdocstrings-python
-mkdocstrings-python==1.15.0  # via mkdocs-ansible
+mkdocstrings-python==1.16.1  # via mkdocs-ansible
 mypy-extensions==1.0.0    # via black
 packaging==24.2           # via ansible-core, black, mkdocs, mkdocs-macros-plugin, pytest, ansible-compat (pyproject.toml)
 paginate==0.5.7           # via mkdocs-material
@@ -69,7 +69,7 @@ pyyaml-env-tag==0.1       # via mkdocs
 referencing==0.36.2       # via jsonschema, jsonschema-specifications
 regex==2024.11.6          # via mkdocs-material
 requests==2.32.3          # via linkchecker, mkdocs-htmlproofer-plugin, mkdocs-material
-rpds-py==0.22.3           # via jsonschema, referencing
+rpds-py==0.23.1           # via jsonschema, referencing
 six==1.17.0               # via python-dateutil
 soupsieve==2.6            # via beautifulsoup4
 subprocess-tee==0.4.2     # via ansible-compat (pyproject.toml)
